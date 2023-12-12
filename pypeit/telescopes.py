@@ -33,6 +33,16 @@ class KeckTelescopePar(TelescopePar):
                                                eff_aperture=72.3674)
 
 
+class SubaruTelescopePar(TelescopePar):
+    def __init__(self):
+        loc = EarthLocation.of_site('Subaru Telescope')
+        super(SubaruTelescopePar, self).__init__(name='SUBARU',
+                                                 longitude=loc.lon.to(units.deg).value,
+                                                 latitude=loc.lat.to(units.deg).value,
+                                                 elevation=loc.height.to(units.m).value,
+                                                 diameter=8.2)
+
+
 class MagellanTelescopePar(TelescopePar):
     def __init__(self):
         loc = EarthLocation.of_site('Las Campanas Observatory')
